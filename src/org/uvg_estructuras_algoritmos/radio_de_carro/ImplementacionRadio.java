@@ -72,6 +72,40 @@ public class ImplementacionRadio implements RadioI
     protected float curFmStation;
     
     /**
+     * Arreglo con capacidad 12, el cual guarda las estaciones
+     * AM definidas por el usuario.
+     */
+    protected int memoriaAM[];
+    
+    /**
+     * Arreglo con capacidad 12, el cual guarda las estaciones
+     * FM definidas por el usuario.
+     */
+    protected float memoriaFM[];
+    
+    /**
+     * Crea una nueva instancia de ImplementacionRadio con
+     * el estado inicial siguiente:
+     * - radio apagado
+     * - radio sintonizando FM
+     * - memoria de botones apuntando al valor minimo del 
+     *   rango (AM o FM)
+     */
+    public ImplementacionRadio()
+    {
+        isOn = false;
+        isAmSintonized = false;
+        memoriaAM = new int[12];
+        memoriaFM = new float[12];
+        // llenar la memoria con valores validos
+        for(int i = 0; i < 12; i++)
+        {
+            memoriaAM[i] = AM_MIN;
+            memoriaFM[i] = FM_MIN;
+        }
+    }
+    
+    /**
      * Incrementa la estacion actual, por una cantidad
      * predefinida. Si el radio esta en AM, esta cantidad es 10.
      * Si el radio esta en FM, esta cantidad es 0.2. Si el
@@ -86,14 +120,21 @@ public class ImplementacionRadio implements RadioI
         // el radio esta en modo AM
         if(isAmSintonized)
         {
-            
+            curAmStation += AM_STEP;
+            // si se paso del rango, se regresa al valor minimo AM
+            if(curAmStation > AM_MAX)
+                curAmStation = AM_MIN;
+            return String.valueOf(curAmStation);
         }
         // el radio esta en modo FM
         else
         {
-            
+            curFmStation += FM_STEP;
+            // si se paso del rango, se regresa al valor minimo AM
+            if(curFmStation > FM_MAX)
+                curFmStation = FM_MIN;
+            return String.format("%.1f", curFmStation);
         }
-        return "";
     }
 
     /**
@@ -108,7 +149,24 @@ public class ImplementacionRadio implements RadioI
     @Override
     public String frecAtras() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        // el radio esta en modo AM
+        if(isAmSintonized)
+        {
+            curAmStation -= AM_STEP;
+            // si se paso del rango, se regresa al valor minimo AM
+            if(curAmStation < AM_MIN)
+                curAmStation = AM_MAX;
+            return String.valueOf(curAmStation);
+        }
+        // el radio esta en modo FM
+        else
+        {
+            curFmStation -= FM_STEP;
+            // si se paso del rango, se regresa al valor minimo AM
+            if(curFmStation < FM_MIN)
+                curFmStation = FM_MAX;
+            return String.format("%.1f", curFmStation);
+        }
     }
 
     /**
@@ -120,7 +178,8 @@ public class ImplementacionRadio implements RadioI
     @Override
     public boolean prender() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(!isOn) isOn = !isOn;
+        return isOn;
     }
 
     /**
@@ -132,17 +191,30 @@ public class ImplementacionRadio implements RadioI
     @Override
     public boolean apagar() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(isOn) isOn = !isOn;
+        return isOn;
     }
 
     /**
-     *
-     * @return
+     * Cambia entre modo  AM y FM. Este metodo funciona como
+     * un tipo "Toggle", si el modo actual es AM, el nuevo modo
+     * sera FM, y vice versa.
+     * @return el nuevo modo como cadena de caracteres: AM o FM
      */
     @Override
     public String cambioFrecuencia() 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String returnMsg = "";
+        if(isAmSintonized)
+        {
+            returnMsg = "FM";
+        }
+        else
+        {
+            returnMsg = "AM";
+        }
+        isAmSintonized = !isAmSintonized;
+        return returnMsg;
     }
 
     /**
