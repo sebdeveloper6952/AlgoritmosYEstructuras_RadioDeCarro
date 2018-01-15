@@ -38,7 +38,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         btn_FrecAdelante = new javax.swing.JButton();
         btn_FrecAtras = new javax.swing.JButton();
         tglBtn_PrenderApagar = new javax.swing.JToggleButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btn_AmFm = new javax.swing.JButton();
         pnl_BotonesMemoria = new javax.swing.JPanel();
         btn_Memoria0 = new javax.swing.JButton();
         btn_Memoria1 = new javax.swing.JButton();
@@ -71,60 +71,85 @@ public class InterfazDeUsuario extends javax.swing.JFrame
 
         pnl_ControlesPrincipales.add(scrPn_PantallaRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 760, 120));
 
+        btn_FrecAdelante.setEnabled(false);
         btn_FrecAdelante.setLabel(">>");
+        btn_FrecAdelante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_FrecAdelanteMouseClicked(evt);
+            }
+        });
         pnl_ControlesPrincipales.add(btn_FrecAdelante, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, 80, 80));
 
+        btn_FrecAtras.setEnabled(false);
         btn_FrecAtras.setLabel("<<");
         pnl_ControlesPrincipales.add(btn_FrecAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 80, 80));
 
         tglBtn_PrenderApagar.setText("Prender");
-        tglBtn_PrenderApagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglBtn_PrenderApagarActionPerformed(evt);
+        tglBtn_PrenderApagar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tglBtn_PrenderApagarMouseClicked(evt);
             }
         });
         pnl_ControlesPrincipales.add(tglBtn_PrenderApagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 80));
 
-        jToggleButton1.setText("AM");
-        pnl_ControlesPrincipales.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 80, 80));
+        btn_AmFm.setText("FM");
+        btn_AmFm.setEnabled(false);
+        btn_AmFm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_AmFmMouseClicked(evt);
+            }
+        });
+        pnl_ControlesPrincipales.add(btn_AmFm, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 80, 80));
 
         getContentPane().add(pnl_ControlesPrincipales, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 960, 180));
 
         pnl_BotonesMemoria.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Memoria0.setText("1");
+        btn_Memoria0.setEnabled(false);
         pnl_BotonesMemoria.add(btn_Memoria0, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 80));
 
+        btn_Memoria1.setEnabled(false);
         btn_Memoria1.setLabel("2");
         pnl_BotonesMemoria.add(btn_Memoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 80, 80));
 
+        btn_Memoria2.setEnabled(false);
         btn_Memoria2.setLabel("3");
         pnl_BotonesMemoria.add(btn_Memoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 80, 80));
 
+        btn_Memoria3.setEnabled(false);
         btn_Memoria3.setLabel("4");
         pnl_BotonesMemoria.add(btn_Memoria3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 80, 80));
 
+        btn_Memoria4.setEnabled(false);
         btn_Memoria4.setLabel("5");
         pnl_BotonesMemoria.add(btn_Memoria4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 80, 80));
 
+        btn_Memoria5.setEnabled(false);
         btn_Memoria5.setLabel("6");
         pnl_BotonesMemoria.add(btn_Memoria5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 80, 80));
 
+        btn_Memoria6.setEnabled(false);
         btn_Memoria6.setLabel("7");
         pnl_BotonesMemoria.add(btn_Memoria6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 80, 80));
 
+        btn_Memoria7.setEnabled(false);
         btn_Memoria7.setLabel("8");
         pnl_BotonesMemoria.add(btn_Memoria7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 80, 80));
 
+        btn_Memoria8.setEnabled(false);
         btn_Memoria8.setLabel("9");
         pnl_BotonesMemoria.add(btn_Memoria8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 80, 80));
 
+        btn_Memoria9.setEnabled(false);
         btn_Memoria9.setLabel("10");
         pnl_BotonesMemoria.add(btn_Memoria9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 80, 80));
 
+        btn_Memoria10.setEnabled(false);
         btn_Memoria10.setLabel("11");
         pnl_BotonesMemoria.add(btn_Memoria10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 80, 80));
 
+        btn_Memoria11.setEnabled(false);
         btn_Memoria11.setLabel("12");
         pnl_BotonesMemoria.add(btn_Memoria11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 80, 80));
 
@@ -132,10 +157,41 @@ public class InterfazDeUsuario extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+/**
+ * Metodo que se ejecuta cuando se hace click en el boton de Prender. Cambia el estado del Radio de encencido a apagado y viceversa.
+ * Habilita o deshabilita los botones, y musetra en pantalla la frecuencia acual
+ * @param evt 
+ */
+    private void tglBtn_PrenderApagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tglBtn_PrenderApagarMouseClicked
+       if(implementacionRadio.prender())
+        {
+            SetButtonState(true);
+            tA_PantallaRadio.setText("PRENDIDO");
+            tglBtn_PrenderApagar.setText("Apagar");
+        }
+    }//GEN-LAST:event_tglBtn_PrenderApagarMouseClicked
 
-    private void tglBtn_PrenderApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglBtn_PrenderApagarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tglBtn_PrenderApagarActionPerformed
+/**
+ * Metodo que se ejecuta cuando se hace click en el boton de adelantar frecuencia. Actualiza la nueva estacion en pantalla
+ * @param evt 
+ */
+    private void btn_FrecAdelanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_FrecAdelanteMouseClicked
+        String nuevaEstacion = implementacionRadio.frecAdelante();
+        tA_PantallaRadio.setText(nuevaEstacion);      
+    }//GEN-LAST:event_btn_FrecAdelanteMouseClicked
+
+    
+/**
+ * Metodo que se ejecuta cuando se hace click en el boton de cambiar estacion. Cambia el texto del boton al nuevo estado del radio
+ * y muestra en pantalla la frecuencia respectiva al estado del radio. 
+ * @param evt 
+ */
+    private void btn_AmFmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AmFmMouseClicked
+        String estadoFrecuencia = implementacionRadio.cambioFrecuencia();
+        btn_AmFm.setText(estadoFrecuencia);
+        String estacion = implementacionRadio.mostrarEstacion();
+        tA_PantallaRadio.setText(estacion);
+    }//GEN-LAST:event_btn_AmFmMouseClicked
 
     /**
      * @param args the command line arguments
@@ -173,6 +229,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_AmFm;
     private javax.swing.JButton btn_FrecAdelante;
     private javax.swing.JButton btn_FrecAtras;
     private javax.swing.JButton btn_Memoria0;
@@ -187,7 +244,6 @@ public class InterfazDeUsuario extends javax.swing.JFrame
     private javax.swing.JButton btn_Memoria7;
     private javax.swing.JButton btn_Memoria8;
     private javax.swing.JButton btn_Memoria9;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPanel pnl_BotonesMemoria;
     private javax.swing.JPanel pnl_ControlesPrincipales;
     private javax.swing.JScrollPane scrPn_PantallaRadio;
@@ -195,5 +251,28 @@ public class InterfazDeUsuario extends javax.swing.JFrame
     private javax.swing.JToggleButton tglBtn_PrenderApagar;
     // End of variables declaration//GEN-END:variables
 
+    
+/**
+ * Metodo que cambia el estado de todos los botones de la interfaz del radio. Exceptuando el de Prendido.
+ * @param state 
+ */
+    private void SetButtonState(boolean state)
+    {
+        btn_AmFm.setEnabled(state);
+        btn_FrecAdelante.setEnabled(state);
+        btn_FrecAtras.setEnabled(state);
+        btn_Memoria0.setEnabled(state);
+        btn_Memoria1.setEnabled(state);
+        btn_Memoria2.setEnabled(state);
+        btn_Memoria3.setEnabled(state);
+        btn_Memoria4.setEnabled(state);
+        btn_Memoria5.setEnabled(state);
+        btn_Memoria6.setEnabled(state);
+        btn_Memoria7.setEnabled(state);
+        btn_Memoria8.setEnabled(state);
+        btn_Memoria9.setEnabled(state);
+        btn_Memoria10.setEnabled(state);
+        btn_Memoria11.setEnabled(state);
+    }
 }
 

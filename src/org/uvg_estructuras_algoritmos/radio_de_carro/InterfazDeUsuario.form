@@ -68,8 +68,12 @@
         </Container>
         <Component class="javax.swing.JButton" name="btn_FrecAdelante">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="&gt;&gt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_FrecAdelanteMouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="870" y="100" width="80" height="80"/>
@@ -78,6 +82,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_FrecAtras">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="&lt;&lt;"/>
           </Properties>
           <Constraints>
@@ -91,7 +96,7 @@
             <Property name="text" type="java.lang.String" value="Prender"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tglBtn_PrenderApagarActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tglBtn_PrenderApagarMouseClicked"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -99,10 +104,14 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+        <Component class="javax.swing.JButton" name="btn_AmFm">
           <Properties>
-            <Property name="text" type="java.lang.String" value="AM"/>
+            <Property name="text" type="java.lang.String" value="FM"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_AmFmMouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="870" y="0" width="80" height="80"/>
@@ -125,6 +134,7 @@
         <Component class="javax.swing.JButton" name="btn_Memoria0">
           <Properties>
             <Property name="text" type="java.lang.String" value="1"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -134,6 +144,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria1">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="2"/>
           </Properties>
           <Constraints>
@@ -144,6 +155,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria2">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="3"/>
           </Properties>
           <Constraints>
@@ -154,6 +166,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria3">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="4"/>
           </Properties>
           <Constraints>
@@ -164,6 +177,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria4">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="5"/>
           </Properties>
           <Constraints>
@@ -174,6 +188,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria5">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="6"/>
           </Properties>
           <Constraints>
@@ -184,6 +199,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria6">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="7"/>
           </Properties>
           <Constraints>
@@ -194,6 +210,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria7">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="8"/>
           </Properties>
           <Constraints>
@@ -204,6 +221,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria8">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="9"/>
           </Properties>
           <Constraints>
@@ -214,6 +232,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria9">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="10"/>
           </Properties>
           <Constraints>
@@ -224,6 +243,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria10">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="11"/>
           </Properties>
           <Constraints>
@@ -234,6 +254,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_Memoria11">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="12"/>
           </Properties>
           <Constraints>

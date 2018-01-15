@@ -93,6 +93,8 @@ public class ImplementacionRadio implements RadioI
      */
     public ImplementacionRadio()
     {
+        curAmStation = AM_MIN;
+        curFmStation = FM_MIN;
         isOn = false;
         isAmSintonized = false;
         memoriaAM = new int[12];
@@ -264,7 +266,9 @@ public class ImplementacionRadio implements RadioI
     @Override
     public String mostrarEstacion()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(isAmSintonized)
+           return String.valueOf(curAmStation);
+        return String.valueOf(curFmStation);
     }
     
 }
