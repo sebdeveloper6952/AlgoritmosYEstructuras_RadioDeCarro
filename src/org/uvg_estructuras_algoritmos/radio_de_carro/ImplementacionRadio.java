@@ -233,13 +233,13 @@ public class ImplementacionRadio implements RadioI
             if (frec >= AM_MIN && frec <= AM_MAX)
             {
                 memoriaAM[pos] = frec;
-                return;
+                
             }
         }
     }
 
     /**
-     * metodo que guarda la frecuencia fm y revisa que la frecuencia ingresada sea valida 
+     * metodo que guarda la frecuencia fm y revisa que la frecuencia ingresada sea valida.
      * @param frec el valor actual de la estacion de la radio.
      * @param pos la posicion que corresponde al boton en la interfaz.
      */
@@ -252,7 +252,7 @@ public class ImplementacionRadio implements RadioI
             if (frec >=FM_MIN && frec <= FM_MAX)
             {
             memoriaFM[pos] = frec;
-            return;
+            
             }
         }
     }
