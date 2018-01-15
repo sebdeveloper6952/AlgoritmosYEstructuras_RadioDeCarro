@@ -78,6 +78,11 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         pnl_ControlesPrincipales.add(btn_FrecAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 80, 80));
 
         tglBtn_PrenderApagar.setText("Prender");
+        tglBtn_PrenderApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tglBtn_PrenderApagarActionPerformed(evt);
+            }
+        });
         pnl_ControlesPrincipales.add(tglBtn_PrenderApagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 80));
 
         jToggleButton1.setText("AM");
@@ -127,6 +132,10 @@ public class InterfazDeUsuario extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tglBtn_PrenderApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglBtn_PrenderApagarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tglBtn_PrenderApagarActionPerformed
 
     /**
      * @param args the command line arguments

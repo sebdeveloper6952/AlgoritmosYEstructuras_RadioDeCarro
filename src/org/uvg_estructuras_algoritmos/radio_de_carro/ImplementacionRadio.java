@@ -229,14 +229,22 @@ public class ImplementacionRadio implements RadioI
     }
 
     /**
-     *
+     * metodo que guarda la frecuencia fm y revisa que la frecuencia ingresada sea valida 
      * @param frec
      * @param pos
      */
     @Override
     public void guardarFrecFm(float frec, int pos) 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+        if (pos <= 11 && pos >= 0)
+        {
+            if (frec >=FM_MIN && frec <= FM_MAX)
+            {
+            memoriaFM[pos] = frec;
+            return;
+            }
+        }
     }
 
     /**
