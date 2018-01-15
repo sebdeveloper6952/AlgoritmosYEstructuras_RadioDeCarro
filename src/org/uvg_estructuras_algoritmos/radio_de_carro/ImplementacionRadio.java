@@ -218,26 +218,36 @@ public class ImplementacionRadio implements RadioI
     }
 
     /**
-     *
-     * @param frec
-     * @param pos
+     *Metodo que verifica que la frecuencia en la que este el radio actualmente este entre los valores permitidos de AM.
+     * y que la posicion este dentro de los definidos en el array. Por ultimo, guarda la frecuencia en la memoria AM.
+     * @param frec el valor actual de la estacion de la radio.
+     * @param pos la posicion que corresponde al boton en la interfaz.
      */
     @Override
+    
+        
     public void guardarFrecAm(int frec, int pos) 
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (pos >= 0 && pos <= 11)
+        {
+            if (frec >= AM_MIN && frec <= AM_MAX)
+            {
+                memoriaAM[pos] = frec;
+                return;
+            }
+        }
     }
 
     /**
      * metodo que guarda la frecuencia fm y revisa que la frecuencia ingresada sea valida 
-     * @param frec
-     * @param pos
+     * @param frec el valor actual de la estacion de la radio.
+     * @param pos la posicion que corresponde al boton en la interfaz.
      */
     @Override
     public void guardarFrecFm(float frec, int pos) 
     {
         
-        if (pos <= 11 && pos >= 0)
+        if (pos >= 0 && pos <= 11)
         {
             if (frec >=FM_MIN && frec <= FM_MAX)
             {
