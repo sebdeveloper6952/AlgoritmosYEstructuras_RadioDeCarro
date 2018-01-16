@@ -85,6 +85,11 @@ public class InterfazDeUsuario extends javax.swing.JFrame
 
         btn_FrecAtras.setEnabled(false);
         btn_FrecAtras.setLabel("<<");
+        btn_FrecAtras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_FrecAtrasMouseClicked(evt);
+            }
+        });
         pnl_ControlesPrincipales.add(btn_FrecAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 80, 80));
 
         tglBtn_PrenderApagar.setText("Prender");
@@ -199,6 +204,16 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         String estacion = implementacionRadio.mostrarEstacion();
         tA_PantallaRadio.setText(estacion);
     }//GEN-LAST:event_btn_AmFmMouseClicked
+
+/**
+ * Metodo que se ejecuta cuando se hace click en el boton de retroceder la frecuencia, este muestra la nueva frecuencia que se esta 
+ * sintonizando en pantalla 
+ * @param evt 
+ */
+    private void btn_FrecAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_FrecAtrasMouseClicked
+        String nuevaEstacion = implementacionRadio.frecAtras();
+        tA_PantallaRadio.setText(nuevaEstacion);
+    }//GEN-LAST:event_btn_FrecAtrasMouseClicked
 
     /**
      * @param args the command line arguments
