@@ -172,7 +172,7 @@ public class ImplementacionRadio implements RadioI
     }
 
     /**
-     * Enciende la radio. Si la radio ya estaba encendida,
+     * Prender la radio. Si la radio ya estaba prender,
      * este metodo no hace nada.
      * @return el valor booleano True, indicando que la radio esta
      * encendida.
