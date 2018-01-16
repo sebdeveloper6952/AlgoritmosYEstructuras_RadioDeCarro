@@ -260,7 +260,8 @@ public class ImplementacionRadio implements RadioI
     }
 
     /**
-     *
+     * Muestra la estacion actual que el radio esta sintonizando, 
+     * tomando en cuenta el estado del radio (AM o FM);
      * @return
      */
     @Override
