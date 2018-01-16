@@ -5,6 +5,8 @@
  */
 package org.uvg_estructuras_algoritmos.radio_de_carro;
 
+import java.awt.Color;
+
 /**
  *
  * @author sevic69
@@ -39,6 +41,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         btn_FrecAtras = new javax.swing.JButton();
         tglBtn_PrenderApagar = new javax.swing.JToggleButton();
         btn_AmFm = new javax.swing.JButton();
+        PanelIndicadorDeEstado = new javax.swing.JPanel();
         pnl_BotonesMemoria = new javax.swing.JPanel();
         btn_Memoria0 = new javax.swing.JButton();
         btn_Memoria1 = new javax.swing.JButton();
@@ -100,6 +103,9 @@ public class InterfazDeUsuario extends javax.swing.JFrame
             }
         });
         pnl_ControlesPrincipales.add(btn_AmFm, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 80, 80));
+
+        PanelIndicadorDeEstado.setBackground(new java.awt.Color(255, 0, 0));
+        pnl_ControlesPrincipales.add(PanelIndicadorDeEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         getContentPane().add(pnl_ControlesPrincipales, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 960, 180));
 
@@ -168,6 +174,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
             SetButtonState(true);
             tA_PantallaRadio.setText("PRENDIDO");
             tglBtn_PrenderApagar.setText("Apagar");
+            PanelIndicadorDeEstado.setBackground(Color.green);
         }
     }//GEN-LAST:event_tglBtn_PrenderApagarMouseClicked
 
@@ -229,6 +236,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelIndicadorDeEstado;
     private javax.swing.JButton btn_AmFm;
     private javax.swing.JButton btn_FrecAdelante;
     private javax.swing.JButton btn_FrecAtras;

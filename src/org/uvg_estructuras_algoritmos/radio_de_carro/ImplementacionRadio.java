@@ -207,15 +207,21 @@ public class ImplementacionRadio implements RadioI
     public String cambioFrecuencia() 
     {
         String returnMsg = "";
-        if(isAmSintonized)
+        if (isOn)
         {
-            returnMsg = "FM";
+            if(isAmSintonized)
+            {
+                returnMsg = "FM";
+            }
+            else
+            {
+                returnMsg = "AM";
+            }
+            isAmSintonized = !isAmSintonized;
         }
-        else
-        {
-            returnMsg = "AM";
+        else{
+            returnMsg = "EL RADIO ESTA APAGADO";
         }
-        isAmSintonized = !isAmSintonized;
         return returnMsg;
     }
 
