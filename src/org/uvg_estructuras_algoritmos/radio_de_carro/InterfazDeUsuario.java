@@ -189,7 +189,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
  */
     private void btn_FrecAdelanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_FrecAdelanteMouseClicked
         String nuevaEstacion = implementacionRadio.frecAdelante();
-        tA_PantallaRadio.setText(nuevaEstacion);      
+        tA_PantallaRadio.setText(nuevaEstacion);
     }//GEN-LAST:event_btn_FrecAdelanteMouseClicked
 
     
