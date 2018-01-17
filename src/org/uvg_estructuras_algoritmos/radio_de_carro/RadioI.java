@@ -16,7 +16,9 @@ public interface RadioI
     public boolean prender();
     public boolean apagar();
     public String cambioFrecuencia();
-    public void guardarFrecAm(int frec, int pos);
-    public void guardarFrecFm(float frec, int pos);
+    public void guardarEstacionActual(int pos);
+    public String obtenerEstacion(int pos);
     public String mostrarEstacion();
+    public boolean estaPrendido();
+    public String obtenerEstado();
 }
