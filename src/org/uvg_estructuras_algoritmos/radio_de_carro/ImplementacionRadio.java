@@ -218,7 +218,7 @@ public class ImplementacionRadio implements RadioI
     /**
      * Muestra la estacion actual que el radio esta sintonizando, 
      * tomando en cuenta el estado del radio (AM o FM);
-     * @return
+     * @return la estacion actual como String.
      */
     @Override
     public String mostrarEstacion()
@@ -238,13 +238,16 @@ public class ImplementacionRadio implements RadioI
     @Override
     public void guardarEstacionActual(int pos) 
     {
-        if(isAmSintonized)
+        if(pos > -1 && pos < 12)
         {
-            memoriaAM[pos] = curAmStation;
-        }
-        else
-        {
-            memoriaFM[pos] = curFmStation;
+            if(isAmSintonized)
+            {
+                memoriaAM[pos] = curAmStation;
+            }
+            else
+            {
+                memoriaFM[pos] = curFmStation;
+            }
         }
     }
 
@@ -252,26 +255,32 @@ public class ImplementacionRadio implements RadioI
      * Metodo que verifica en que banda esta sintonizado el radio, para despues
      * guardar el valor de la estacion en la respectiva memoria. 
      * @param pos posicion de la memoria donde se guardará el valor.
-     * @return 
+     * @return La estacion de radio como String, o devuelve un mensaje de error
+     * si la posicion de memoria es invalida.
      */
     @Override
     public String obtenerEstacion(int pos) 
     {
-        if(isAmSintonized)
+        if(pos > -1 && pos < 12)
         {
-            curAmStation = memoriaAM[pos];
-            return String.valueOf(curAmStation);
+            if(isAmSintonized)
+            {
+                curAmStation = memoriaAM[pos];
+                return String.valueOf(curAmStation);
+            }
+            else
+            {
+                curFmStation = memoriaFM[pos];
+                return String.format("%.1f", curFmStation);
+            }
         }
-        else
-        {
-            curFmStation = memoriaFM[pos];
-            return String.format("%.1f", curFmStation);
-        }
+        return "Posicion de memoria invalida.";
     }
 
     /**
      * Metodo que devuelve el estado del Radio
-     * @return 
+     * @return true si el radio esta prendido, false si esta
+     * apagado.
      */
     @Override
     public boolean estaPrendido() 
