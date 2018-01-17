@@ -248,16 +248,38 @@ public class ImplementacionRadio implements RadioI
         }
     }
 
+    /**
+     * Metodo que verifica en que banda esta sintonizado el radio, para despues
+     * guardar el valor de la estacion en la respectiva memoria. 
+     * @param pos posicion de la memoria donde se guardará el valor.
+     * @return 
+     */
+    
     @Override
+<<<<<<< HEAD
     public String obtenerEstacion(int pos) 
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+    public String obtenerEstacion(int pos) {
+        if(isAmSintonized){
+            return String.valueOf(memoriaAM[pos]);
+        }
+        else{
+            return String.format("%.1f", memoriaFM[pos]);
+        }
+>>>>>>> 64872680f7e80db89ba39a1b03cffe1428013b86
     }
 
+    /**
+     * Metodo que devuelve el estado del Radio
+     * @return 
+     */
+    
+    
     @Override
-    public boolean estaPrendido() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean estaPrendido() {
+        return isOn;
     }
 
     @Override
