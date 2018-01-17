@@ -225,7 +225,7 @@ public class ImplementacionRadio implements RadioI
     {
         if(isAmSintonized)
            return String.valueOf(curAmStation);
-        return String.valueOf(curFmStation);
+        return String.format("%.1f", curFmStation);
     }
     
     /**
@@ -254,10 +254,9 @@ public class ImplementacionRadio implements RadioI
      * @param pos posicion de la memoria donde se guardará el valor.
      * @return 
      */
-    
     @Override
-
-    public String obtenerEstacion(int pos) {
+    public String obtenerEstacion(int pos) 
+    {
         if(isAmSintonized){
             return String.valueOf(memoriaAM[pos]);
         }
@@ -270,13 +269,16 @@ public class ImplementacionRadio implements RadioI
      * Metodo que devuelve el estado del Radio
      * @return 
      */
-    
-    
     @Override
-    public boolean estaPrendido() {
+    public boolean estaPrendido() 
+    {
         return isOn;
     }
 
+    /**
+     * Obtiene el estado actual del radio, AM o FM.
+     * @return Regresa el nuevo estado del radio. ("AM" o "FM")
+     */
     @Override
     public String obtenerEstado() 
     {
@@ -287,5 +289,4 @@ public class ImplementacionRadio implements RadioI
         }
         else return "EL RADIO ESTA APAGADO.";
     }
-    
 }
