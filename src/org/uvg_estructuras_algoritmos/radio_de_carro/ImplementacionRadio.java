@@ -257,11 +257,15 @@ public class ImplementacionRadio implements RadioI
     @Override
     public String obtenerEstacion(int pos) 
     {
-        if(isAmSintonized){
-            return String.valueOf(memoriaAM[pos]);
+        if(isAmSintonized)
+        {
+            curAmStation = memoriaAM[pos];
+            return String.valueOf(curAmStation);
         }
-        else{
-            return String.format("%.1f", memoriaFM[pos]);
+        else
+        {
+            curFmStation = memoriaFM[pos];
+            return String.format("%.1f", curFmStation);
         }
     }
 
