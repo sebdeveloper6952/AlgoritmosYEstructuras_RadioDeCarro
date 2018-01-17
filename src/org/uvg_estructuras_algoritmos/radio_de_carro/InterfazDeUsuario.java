@@ -93,7 +93,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         });
         pnl_ControlesPrincipales.add(btn_FrecAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 80, 80));
 
-        tglBtn_PrenderApagar.setText("Prender");
+        tglBtn_PrenderApagar.setText("ON");
         tglBtn_PrenderApagar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tglBtn_PrenderApagarMouseClicked(evt);
@@ -238,8 +238,8 @@ public class InterfazDeUsuario extends javax.swing.JFrame
        if(implementacionRadio.prender())
         {
             SetButtonState(true);
-            tA_PantallaRadio.setText("PRENDIDO");
-            tglBtn_PrenderApagar.setText("Apagar");
+            tA_PantallaRadio.setText("ENCENDIDO");
+            tglBtn_PrenderApagar.setText("OFF");
             PanelIndicadorDeEstado.setBackground(Color.green);
         }
     }//GEN-LAST:event_tglBtn_PrenderApagarMouseClicked
