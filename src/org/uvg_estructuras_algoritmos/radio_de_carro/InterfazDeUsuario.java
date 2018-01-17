@@ -6,6 +6,7 @@
 package org.uvg_estructuras_algoritmos.radio_de_carro;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 
 /**
  *
@@ -118,50 +119,110 @@ public class InterfazDeUsuario extends javax.swing.JFrame
 
         btn_Memoria0.setText("1");
         btn_Memoria0.setEnabled(false);
+        btn_Memoria0.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria0MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria0, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 80));
 
         btn_Memoria1.setEnabled(false);
         btn_Memoria1.setLabel("2");
+        btn_Memoria1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria1MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 80, 80));
 
         btn_Memoria2.setEnabled(false);
         btn_Memoria2.setLabel("3");
+        btn_Memoria2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria2MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 80, 80));
 
         btn_Memoria3.setEnabled(false);
         btn_Memoria3.setLabel("4");
+        btn_Memoria3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria3MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 80, 80));
 
         btn_Memoria4.setEnabled(false);
         btn_Memoria4.setLabel("5");
+        btn_Memoria4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria4MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 80, 80));
 
         btn_Memoria5.setEnabled(false);
         btn_Memoria5.setLabel("6");
+        btn_Memoria5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria5MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 80, 80));
 
         btn_Memoria6.setEnabled(false);
         btn_Memoria6.setLabel("7");
+        btn_Memoria6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria6MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 80, 80));
 
         btn_Memoria7.setEnabled(false);
         btn_Memoria7.setLabel("8");
+        btn_Memoria7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria7MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 80, 80));
 
         btn_Memoria8.setEnabled(false);
         btn_Memoria8.setLabel("9");
+        btn_Memoria8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria8MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 80, 80));
 
         btn_Memoria9.setEnabled(false);
         btn_Memoria9.setLabel("10");
+        btn_Memoria9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria9MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 80, 80));
 
         btn_Memoria10.setEnabled(false);
         btn_Memoria10.setLabel("11");
+        btn_Memoria10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria10MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 80, 80));
 
         btn_Memoria11.setEnabled(false);
         btn_Memoria11.setLabel("12");
+        btn_Memoria11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_Memoria11MouseClicked(evt);
+            }
+        });
         pnl_BotonesMemoria.add(btn_Memoria11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 80, 80));
 
         getContentPane().add(pnl_BotonesMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 200, 480, 150));
@@ -216,6 +277,172 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         tA_PantallaRadio.setText(nuevaEstacion);
     }//GEN-LAST:event_btn_FrecAtrasMouseClicked
 
+    private void btn_Memoria0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria0MouseClicked
+        
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(0);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(0);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria0MouseClicked
+
+    private void btn_Memoria1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria1MouseClicked
+        
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(1);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(1);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria1MouseClicked
+
+    private void btn_Memoria2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria2MouseClicked
+        
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(2);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(2);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria2MouseClicked
+
+    private void btn_Memoria3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria3MouseClicked
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(3);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(3);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria3MouseClicked
+
+    private void btn_Memoria4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria4MouseClicked
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(4);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(4);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria4MouseClicked
+
+    private void btn_Memoria5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria5MouseClicked
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(5);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(5);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria5MouseClicked
+
+    private void btn_Memoria6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria6MouseClicked
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(6);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(6);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria6MouseClicked
+
+    private void btn_Memoria7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria7MouseClicked
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(7);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(7);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria7MouseClicked
+
+    private void btn_Memoria8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria8MouseClicked
+        
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(8);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(8);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria8MouseClicked
+
+    private void btn_Memoria9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria9MouseClicked
+       int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(9);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(9);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria9MouseClicked
+
+    private void btn_Memoria10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria10MouseClicked
+       
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(10);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(10);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria10MouseClicked
+
+    private void btn_Memoria11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria11MouseClicked
+        
+        int m = evt.getButton();
+        if(m == 1){
+        String estacion = implementacionRadio.obtenerEstacion(11);
+         tA_PantallaRadio.setText(estacion);
+        }
+        else if(m == 3){
+        implementacionRadio.guardarEstacionActual(11);
+        Toolkit.getDefaultToolkit().beep();
+  
+        }
+    }//GEN-LAST:event_btn_Memoria11MouseClicked
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
