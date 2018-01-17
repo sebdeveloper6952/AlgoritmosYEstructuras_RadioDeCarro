@@ -206,23 +206,13 @@ public class ImplementacionRadio implements RadioI
     @Override
     public String cambioFrecuencia() 
     {
-        String returnMsg = "";
-        if (isOn)
+        if(isOn)
         {
-            if(isAmSintonized)
-            {
-                returnMsg = "FM";
-            }
-            else
-            {
-                returnMsg = "AM";
-            }
             isAmSintonized = !isAmSintonized;
+            String returnMsg = obtenerEstado();
+            return returnMsg;
         }
-        else{
-            returnMsg = "EL RADIO ESTA APAGADO";
-        }
-        return returnMsg;
+        return "EL RADIO ESTA APAGADO.";
     }
 
     /**
@@ -237,25 +227,48 @@ public class ImplementacionRadio implements RadioI
            return String.valueOf(curAmStation);
         return String.valueOf(curFmStation);
     }
+    
+    /**
+     * Guarda la estacion actual en la memoria del radio. Si el radio
+     * esta en AM, la estacion actual de AM se guarda en la memoria
+     * para AM y lo mismo pasa si el radio esta en FM.
+     * @param pos La posicion de memoria en la que se desea guardar
+     * la estacion actual.
+     */
+    @Override
+    public void guardarEstacionActual(int pos) 
+    {
+        if(isAmSintonized)
+        {
+            memoriaAM[pos] = curAmStation;
+        }
+        else
+        {
+            memoriaFM[pos] = curFmStation;
+        }
+    }
 
     @Override
-    public void guardarEstacionActual(int pos) {
+    public String obtenerEstacion(int pos) 
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String obtenerEstacion(int pos) {
+    public boolean estaPrendido() 
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean estaPrendido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String obtenerEstado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String obtenerEstado() 
+    {
+        if(isOn)
+        {
+            if(isAmSintonized) return "AM";
+            else return "FM";
+        }
+        else return "EL RADIO ESTA APAGADO.";
     }
     
 }
