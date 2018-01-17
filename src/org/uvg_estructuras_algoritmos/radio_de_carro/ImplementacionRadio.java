@@ -256,11 +256,7 @@ public class ImplementacionRadio implements RadioI
      */
     
     @Override
-<<<<<<< HEAD
-    public String obtenerEstacion(int pos) 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
+
     public String obtenerEstacion(int pos) {
         if(isAmSintonized){
             return String.valueOf(memoriaAM[pos]);
@@ -268,7 +264,6 @@ public class ImplementacionRadio implements RadioI
         else{
             return String.format("%.1f", memoriaFM[pos]);
         }
->>>>>>> 64872680f7e80db89ba39a1b03cffe1428013b86
     }
 
     /**
