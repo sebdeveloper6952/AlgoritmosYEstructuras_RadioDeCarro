@@ -226,46 +226,6 @@ public class ImplementacionRadio implements RadioI
     }
 
     /**
-     *Metodo que verifica que la frecuencia en la que este el radio actualmente este entre los valores permitidos de AM.
-     * y que la posicion este dentro de los definidos en el array. Por ultimo, guarda la frecuencia en la memoria AM.
-     * @param frec el valor actual de la estacion de la radio.
-     * @param pos la posicion que corresponde al boton en la interfaz.
-     */
-    @Override
-    
-        
-    public void guardarFrecAm(int frec, int pos) 
-    {
-        if (pos >= 0 && pos <= 11)
-        {
-            if (frec >= AM_MIN && frec <= AM_MAX)
-            {
-                memoriaAM[pos] = frec;
-                
-            }
-        }
-    }
-
-    /**
-     * metodo que guarda la frecuencia fm y revisa que la frecuencia ingresada sea valida.
-     * @param frec el valor actual de la estacion de la radio.
-     * @param pos la posicion que corresponde al boton en la interfaz.
-     */
-    @Override
-    public void guardarFrecFm(float frec, int pos) 
-    {
-        
-        if (pos >= 0 && pos <= 11)
-        {
-            if (frec >=FM_MIN && frec <= FM_MAX)
-            {
-            memoriaFM[pos] = frec;
-            
-            }
-        }
-    }
-
-    /**
      * Muestra la estacion actual que el radio esta sintonizando, 
      * tomando en cuenta el estado del radio (AM o FM);
      * @return
@@ -276,6 +236,26 @@ public class ImplementacionRadio implements RadioI
         if(isAmSintonized)
            return String.valueOf(curAmStation);
         return String.valueOf(curFmStation);
+    }
+
+    @Override
+    public void guardarEstacionActual(int pos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String obtenerEstacion(int pos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean estaPrendido() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String obtenerEstado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
