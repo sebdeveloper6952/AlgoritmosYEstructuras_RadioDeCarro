@@ -6,7 +6,10 @@
 package org.uvg_estructuras_algoritmos.radio_de_carro;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.InputStream;
 
 /**
  *
@@ -15,6 +18,7 @@ import java.awt.Toolkit;
 public class InterfazDeUsuario extends javax.swing.JFrame 
 {
     protected RadioI implementacionRadio;
+    protected Font customFont;
     
     /**
      * Creates new form InterfazDeUsuario
@@ -24,6 +28,15 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         initComponents();
         // cambiar esta linea de codigo con la nueva clase para probar
         implementacionRadio = new ImplementacionRadio();
+        // load custom font
+        File font_file = new File("fonts\\digital_counter_7.ttf");
+        try{
+            customFont = Font.createFont(Font.TRUETYPE_FONT, font_file);
+           }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        //tA_PantallaRadio.setFont(customFont);
     }
 
     /**
@@ -36,13 +49,13 @@ public class InterfazDeUsuario extends javax.swing.JFrame
     private void initComponents() {
 
         pnl_ControlesPrincipales = new javax.swing.JPanel();
-        scrPn_PantallaRadio = new javax.swing.JScrollPane();
-        tA_PantallaRadio = new javax.swing.JTextArea();
         btn_FrecAdelante = new javax.swing.JButton();
         btn_FrecAtras = new javax.swing.JButton();
         tglBtn_PrenderApagar = new javax.swing.JToggleButton();
         btn_AmFm = new javax.swing.JButton();
         PanelIndicadorDeEstado = new javax.swing.JPanel();
+        jPanelPantallaRadio = new javax.swing.JPanel();
+        jLabelTextoRadio = new javax.swing.JLabel();
         pnl_BotonesMemoria = new javax.swing.JPanel();
         btn_Memoria0 = new javax.swing.JButton();
         btn_Memoria1 = new javax.swing.JButton();
@@ -63,18 +76,6 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnl_ControlesPrincipales.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        scrPn_PantallaRadio.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrPn_PantallaRadio.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        tA_PantallaRadio.setEditable(false);
-        tA_PantallaRadio.setColumns(20);
-        tA_PantallaRadio.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        tA_PantallaRadio.setRows(5);
-        tA_PantallaRadio.setToolTipText("");
-        scrPn_PantallaRadio.setViewportView(tA_PantallaRadio);
-
-        pnl_ControlesPrincipales.add(scrPn_PantallaRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 760, 120));
 
         btn_FrecAdelante.setEnabled(false);
         btn_FrecAdelante.setLabel(">>");
@@ -113,6 +114,15 @@ public class InterfazDeUsuario extends javax.swing.JFrame
 
         PanelIndicadorDeEstado.setBackground(new java.awt.Color(255, 0, 0));
         pnl_ControlesPrincipales.add(PanelIndicadorDeEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+
+        jPanelPantallaRadio.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelPantallaRadio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabelTextoRadio.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        jLabelTextoRadio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanelPantallaRadio.add(jLabelTextoRadio);
+
+        pnl_ControlesPrincipales.add(jPanelPantallaRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 730, 130));
 
         getContentPane().add(pnl_ControlesPrincipales, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 960, 180));
 
@@ -240,16 +250,19 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         {
             implementacionRadio.apagar();
             SetButtonState(false);
-            tA_PantallaRadio.setText("APAGADO");
+            jLabelTextoRadio.setText("APAGADO");
             tglBtn_PrenderApagar.setText("ON");
             PanelIndicadorDeEstado.setBackground(Color.red);
+            jPanelPantallaRadio.setBackground(new java.awt.Color(255, 255, 255));
+            
          }
        else{
            implementacionRadio.prender();
            SetButtonState(true);
-           tA_PantallaRadio.setText("ENCENDIDO");
+           jLabelTextoRadio.setText("ENCENDIDO");
            tglBtn_PrenderApagar.setText("OFF");
            PanelIndicadorDeEstado.setBackground(Color.green);
+           jPanelPantallaRadio.setBackground(new java.awt.Color(204, 255, 153));
        }
     }//GEN-LAST:event_tglBtn_PrenderApagarMouseClicked
 
@@ -259,7 +272,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
  */
     private void btn_FrecAdelanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_FrecAdelanteMouseClicked
         String nuevaEstacion = implementacionRadio.frecAdelante();
-        tA_PantallaRadio.setText(nuevaEstacion);
+        jLabelTextoRadio.setText(nuevaEstacion);
     }//GEN-LAST:event_btn_FrecAdelanteMouseClicked
 
     
@@ -274,7 +287,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
             String estadoFrecuencia = implementacionRadio.cambioFrecuencia();
             btn_AmFm.setText(estadoFrecuencia);
             String estacion = implementacionRadio.mostrarEstacion();
-            tA_PantallaRadio.setText(estacion);
+            jLabelTextoRadio.setText(estacion);
         }
     }//GEN-LAST:event_btn_AmFmMouseClicked
 
@@ -285,7 +298,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
  */
     private void btn_FrecAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_FrecAtrasMouseClicked
         String nuevaEstacion = implementacionRadio.frecAtras();
-        tA_PantallaRadio.setText(nuevaEstacion);
+        jLabelTextoRadio.setText(nuevaEstacion);
     }//GEN-LAST:event_btn_FrecAtrasMouseClicked
 
     private void btn_Memoria0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria0MouseClicked
@@ -294,7 +307,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         if(m == 1)
         {
             String estacion = implementacionRadio.obtenerEstacion(0);
-            tA_PantallaRadio.setText(estacion);
+            jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3)
         {
@@ -308,7 +321,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(1);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(1);
@@ -322,7 +335,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(2);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(2);
@@ -335,7 +348,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(3);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(3);
@@ -348,7 +361,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(4);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(4);
@@ -361,7 +374,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(5);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(5);
@@ -374,7 +387,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(6);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(6);
@@ -387,7 +400,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(7);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(7);
@@ -401,7 +414,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(8);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(8);
@@ -414,7 +427,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
        int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(9);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(9);
@@ -428,7 +441,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(10);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(10);
@@ -442,7 +455,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         int m = evt.getButton();
         if(m == 1){
         String estacion = implementacionRadio.obtenerEstacion(11);
-         tA_PantallaRadio.setText(estacion);
+         jLabelTextoRadio.setText(estacion);
         }
         else if(m == 3){
         implementacionRadio.guardarEstacionActual(11);
@@ -507,10 +520,10 @@ public class InterfazDeUsuario extends javax.swing.JFrame
     private javax.swing.JButton btn_Memoria7;
     private javax.swing.JButton btn_Memoria8;
     private javax.swing.JButton btn_Memoria9;
+    private javax.swing.JLabel jLabelTextoRadio;
+    private javax.swing.JPanel jPanelPantallaRadio;
     private javax.swing.JPanel pnl_BotonesMemoria;
     private javax.swing.JPanel pnl_ControlesPrincipales;
-    private javax.swing.JScrollPane scrPn_PantallaRadio;
-    private javax.swing.JTextArea tA_PantallaRadio;
     private javax.swing.JToggleButton tglBtn_PrenderApagar;
     // End of variables declaration//GEN-END:variables
 
