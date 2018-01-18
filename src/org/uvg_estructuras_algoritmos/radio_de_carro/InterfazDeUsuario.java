@@ -236,13 +236,21 @@ public class InterfazDeUsuario extends javax.swing.JFrame
  * @param evt 
  */
     private void tglBtn_PrenderApagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tglBtn_PrenderApagarMouseClicked
-       if(implementacionRadio.prender())
+       if(implementacionRadio.estaPrendido())
         {
-            SetButtonState(true);
-            tA_PantallaRadio.setText("ENCENDIDO");
-            tglBtn_PrenderApagar.setText("OFF");
-            PanelIndicadorDeEstado.setBackground(Color.green);
-        }
+            implementacionRadio.apagar();
+            SetButtonState(false);
+            tA_PantallaRadio.setText("APAGADO");
+            tglBtn_PrenderApagar.setText("ON");
+            PanelIndicadorDeEstado.setBackground(Color.red);
+         }
+       else{
+           implementacionRadio.prender();
+           SetButtonState(true);
+           tA_PantallaRadio.setText("ENCENDIDO");
+           tglBtn_PrenderApagar.setText("OFF");
+           PanelIndicadorDeEstado.setBackground(Color.green);
+       }
     }//GEN-LAST:event_tglBtn_PrenderApagarMouseClicked
 
 /**
