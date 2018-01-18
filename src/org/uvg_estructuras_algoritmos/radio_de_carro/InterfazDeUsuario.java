@@ -277,16 +277,17 @@ public class InterfazDeUsuario extends javax.swing.JFrame
     }//GEN-LAST:event_btn_FrecAtrasMouseClicked
 
     private void btn_Memoria0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Memoria0MouseClicked
-        
+
         int m = evt.getButton();
-        if(m == 1){
-        String estacion = implementacionRadio.obtenerEstacion(0);
-         tA_PantallaRadio.setText(estacion);
+        if(m == 1)
+        {
+            String estacion = implementacionRadio.obtenerEstacion(0);
+            tA_PantallaRadio.setText(estacion);
         }
-        else if(m == 3){
-        implementacionRadio.guardarEstacionActual(0);
-        Toolkit.getDefaultToolkit().beep();
-  
+        else if(m == 3)
+        {
+            implementacionRadio.guardarEstacionActual(0);
+            Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_btn_Memoria0MouseClicked
 
