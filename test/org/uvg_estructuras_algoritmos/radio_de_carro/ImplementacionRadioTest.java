@@ -17,21 +17,22 @@ public class ImplementacionRadioTest {
     }
 
     /**
-     * Test of frecAdelante method, of class ImplementacionRadio.
+     * Prueba de metodo para verfiicar que la radio avanze de
+     * estacion y actualice la estacion actual.
      */
     @Test
-    public void testFrecAdelante() {
+    public void testFrecAdelante() 
+    {
         System.out.println("frecAdelante");
         ImplementacionRadio instance = new ImplementacionRadio();
         String result = instance.frecAdelante();
         String expResult = instance.mostrarEstacion();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
-     * Test of frecAtras method, of class ImplementacionRadio.
+     * Prueba de metodo para verificar que la radio retroceda
+     * de estacion y actualice la estacion actual.
      */
     @Test
     public void testFrecAtras() {
@@ -40,24 +41,20 @@ public class ImplementacionRadioTest {
         String result = instance.frecAtras();
         String expResult = instance.mostrarEstacion();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
-     * Test of prender method, of class ImplementacionRadio.
+     * Verifica que el radio se encienda correctamente.
      */
     @Test
     public void testPrender() {
         System.out.println("prender");
         ImplementacionRadio instance = new ImplementacionRadio();
         assertTrue(instance.prender());
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
-     * Test of apagar method, of class ImplementacionRadio.
+     * Verifica que el radio se apague correctamente.
      */
     @Test
     public void testApagar() {
@@ -66,24 +63,28 @@ public class ImplementacionRadioTest {
         boolean expResult = false;
         boolean result = instance.apagar();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
-     * Test of cambioFrecuencia method, of class ImplementacionRadio.
+     * Metodo que prueba que el radio cambie de estado (AM o FM).
+     * El radio inicialmente esta en FM, asi que al cambiar de
+     * estado 1 vez deberia ser AM.
      */
     @Test
     public void testCambioFrecuencia() {
         System.out.println("cambioFrecuencia");
         ImplementacionRadio instance = new ImplementacionRadio();
+        instance.prender();
         String expResult = "AM";
         String result = instance.cambioFrecuencia();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
+    /**
+     * Verifica que la radio guarde la estacion adecuada en la
+     * posicion adecuada. Se verifica obteniendo la estacion
+     * nuevamente de la memoria de la radio.
+     */
     @Test
     public void testGuardarEstacion()
     {
@@ -97,7 +98,7 @@ public class ImplementacionRadioTest {
 
 
     /**
-     * Test of mostrarEstacion method, of class ImplementacionRadio.
+     * Comprueba que la radio muestra la estacion adecuada.
      */
     @Test
     public void testMostrarEstacion() {
@@ -107,8 +108,6 @@ public class ImplementacionRadioTest {
         String expResult ="87.9";
         String result = instance.mostrarEstacion();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
 }

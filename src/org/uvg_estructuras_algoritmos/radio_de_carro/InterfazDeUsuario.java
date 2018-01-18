@@ -261,10 +261,13 @@ public class InterfazDeUsuario extends javax.swing.JFrame
  * @param evt 
  */
     private void btn_AmFmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AmFmMouseClicked
-        String estadoFrecuencia = implementacionRadio.cambioFrecuencia();
-        btn_AmFm.setText(estadoFrecuencia);
-        String estacion = implementacionRadio.mostrarEstacion();
-        tA_PantallaRadio.setText(estacion);
+        if(implementacionRadio.estaPrendido())
+        {
+            String estadoFrecuencia = implementacionRadio.cambioFrecuencia();
+            btn_AmFm.setText(estadoFrecuencia);
+            String estacion = implementacionRadio.mostrarEstacion();
+            tA_PantallaRadio.setText(estacion);
+        }
     }//GEN-LAST:event_btn_AmFmMouseClicked
 
 /**
