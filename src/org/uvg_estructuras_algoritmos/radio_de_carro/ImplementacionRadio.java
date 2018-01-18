@@ -40,6 +40,12 @@ public class ImplementacionRadio implements RadioI
      * Espacio entre cada canal de FM.
      */
     protected final float FM_STEP = 0.2f;
+    
+    /**
+     * Mensaje de error que se muestra si se intenta realizar
+     * una operacion cuando el radio esta apagado.
+     */
+    protected final String ERROR_MESSAGE = "EL RADIO ESTA APAGADO.";
 
     /**
      * Se utiliza para saber si el radio esta encendido.
@@ -119,24 +125,28 @@ public class ImplementacionRadio implements RadioI
     @Override
     public String frecAdelante() 
     {
-        // el radio esta en modo AM
-        if(isAmSintonized)
+        if(isOn)
         {
-            curAmStation += AM_STEP;
-            // si se paso del rango, se regresa al valor minimo AM
-            if(curAmStation > AM_MAX)
-                curAmStation = AM_MIN;
-            return String.valueOf(curAmStation);
+            // el radio esta en modo AM
+            if(isAmSintonized)
+            {
+                curAmStation += AM_STEP;
+                // si se paso del rango, se regresa al valor minimo AM
+                if(curAmStation > AM_MAX)
+                    curAmStation = AM_MIN;
+                return String.valueOf(curAmStation);
+            }
+            // el radio esta en modo FM
+            else
+            {
+                curFmStation += FM_STEP;
+                // si se paso del rango, se regresa al valor minimo AM
+                if(curFmStation > FM_MAX)
+                    curFmStation = FM_MIN;
+                return String.format("%.1f", curFmStation);
+            }
         }
-        // el radio esta en modo FM
-        else
-        {
-            curFmStation += FM_STEP;
-            // si se paso del rango, se regresa al valor minimo AM
-            if(curFmStation > FM_MAX)
-                curFmStation = FM_MIN;
-            return String.format("%.1f", curFmStation);
-        }
+        return ERROR_MESSAGE;
     }
 
     /**
@@ -151,24 +161,28 @@ public class ImplementacionRadio implements RadioI
     @Override
     public String frecAtras() 
     {
-        // el radio esta en modo AM
-        if(isAmSintonized)
+        if(isOn)
         {
-            curAmStation -= AM_STEP;
-            // si se paso del rango, se regresa al valor minimo AM
-            if(curAmStation < AM_MIN)
-                curAmStation = AM_MAX;
-            return String.valueOf(curAmStation);
+            // el radio esta en modo AM
+            if(isAmSintonized)
+            {
+                curAmStation -= AM_STEP;
+                // si se paso del rango, se regresa al valor minimo AM
+                if(curAmStation < AM_MIN)
+                    curAmStation = AM_MAX;
+                return String.valueOf(curAmStation);
+            }
+            // el radio esta en modo FM
+            else
+            {
+                curFmStation -= FM_STEP;
+                // si se paso del rango, se regresa al valor minimo AM
+                if(curFmStation < FM_MIN)
+                    curFmStation = FM_MAX;
+                return String.format("%.1f", curFmStation);
+            }
         }
-        // el radio esta en modo FM
-        else
-        {
-            curFmStation -= FM_STEP;
-            // si se paso del rango, se regresa al valor minimo AM
-            if(curFmStation < FM_MIN)
-                curFmStation = FM_MAX;
-            return String.format("%.1f", curFmStation);
-        }
+        return ERROR_MESSAGE;
     }
 
     /**
@@ -212,7 +226,7 @@ public class ImplementacionRadio implements RadioI
             String returnMsg = obtenerEstado();
             return returnMsg;
         }
-        return "EL RADIO ESTA APAGADO.";
+        return ERROR_MESSAGE;
     }
 
     /**
@@ -223,9 +237,12 @@ public class ImplementacionRadio implements RadioI
     @Override
     public String mostrarEstacion()
     {
-        if(isAmSintonized)
-           return String.valueOf(curAmStation);
-        return String.format("%.1f", curFmStation);
+        if(isOn)
+        {
+            if(isAmSintonized) return String.valueOf(curAmStation);
+            return String.format("%.1f", curFmStation);
+        }
+        return ERROR_MESSAGE;
     }
     
     /**
@@ -238,15 +255,18 @@ public class ImplementacionRadio implements RadioI
     @Override
     public void guardarEstacionActual(int pos) 
     {
-        if(pos > -1 && pos < 12)
+        if(isOn)
         {
-            if(isAmSintonized)
+            if(pos > -1 && pos < 12)
             {
-                memoriaAM[pos] = curAmStation;
-            }
-            else
-            {
-                memoriaFM[pos] = curFmStation;
+                if(isAmSintonized)
+                {
+                    memoriaAM[pos] = curAmStation;
+                }
+                else
+                {
+                    memoriaFM[pos] = curFmStation;
+                }
             }
         }
     }
@@ -261,20 +281,24 @@ public class ImplementacionRadio implements RadioI
     @Override
     public String obtenerEstacion(int pos) 
     {
-        if(pos > -1 && pos < 12)
+        if(isOn)
         {
-            if(isAmSintonized)
+            if(pos > -1 && pos < 12)
             {
-                curAmStation = memoriaAM[pos];
-                return String.valueOf(curAmStation);
+                if(isAmSintonized)
+                {
+                    curAmStation = memoriaAM[pos];
+                    return String.valueOf(curAmStation);
+                }
+                else
+                {
+                    curFmStation = memoriaFM[pos];
+                    return String.format("%.1f", curFmStation);
+                }
             }
-            else
-            {
-                curFmStation = memoriaFM[pos];
-                return String.format("%.1f", curFmStation);
-            }
+            return "Posicion de memoria invalida.";
         }
-        return "Posicion de memoria invalida.";
+        return ERROR_MESSAGE;
     }
 
     /**

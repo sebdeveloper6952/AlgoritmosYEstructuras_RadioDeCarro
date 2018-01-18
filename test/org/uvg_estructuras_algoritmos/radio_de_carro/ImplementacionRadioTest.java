@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.uvg_estructuras_algoritmos.radio_de_carro;
 
 import org.junit.After;
@@ -104,34 +99,18 @@ public class ImplementacionRadioTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of guardarFrecAm method, of class ImplementacionRadio.
-     */
+    
     @Test
-    public void testGuardarFrecAm() {
-        System.out.println("guardarFrecAm");
-        int frec = 0;
-        int pos = 0;
+    public void testGuardarEstacion()
+    {
+        System.out.println("guardarEstacion");
         ImplementacionRadio instance = new ImplementacionRadio();
-        instance.guardarFrecAm(frec, pos);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        instance.prender();
+        String s = instance.frecAdelante();
+        instance.guardarEstacionActual(0);
+        assertEquals(s, instance.obtenerEstacion(0));
     }
 
-    /**
-     * Test of guardarFrecFm method, of class ImplementacionRadio.
-     */
-    @Test
-    public void testGuardarFrecFm() {
-        System.out.println("guardarFrecFm");
-        float frec = 0.0F;
-        int pos = 0;
-        ImplementacionRadio instance = new ImplementacionRadio();
-        instance.guardarFrecFm(frec, pos);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
 
     /**
      * Test of mostrarEstacion method, of class ImplementacionRadio.
