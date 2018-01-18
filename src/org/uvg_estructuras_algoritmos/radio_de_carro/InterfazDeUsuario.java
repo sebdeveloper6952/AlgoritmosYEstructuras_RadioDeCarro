@@ -71,6 +71,7 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         tA_PantallaRadio.setColumns(20);
         tA_PantallaRadio.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         tA_PantallaRadio.setRows(5);
+        tA_PantallaRadio.setToolTipText("");
         scrPn_PantallaRadio.setViewportView(tA_PantallaRadio);
 
         pnl_ControlesPrincipales.add(scrPn_PantallaRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 760, 120));
