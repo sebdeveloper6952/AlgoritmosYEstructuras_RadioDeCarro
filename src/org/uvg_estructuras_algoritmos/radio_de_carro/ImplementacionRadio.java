@@ -1,13 +1,20 @@
 package org.uvg_estructuras_algoritmos.radio_de_carro;
 
 /**
- * Esta clase implementa la interfaz RadioI. Es utilizada
- * por la clase que implementa la interfaz grafica para
- * controlar y simular un radio de carro.
+ * Universidad Del Valle de Guatemala
+ * Algoritmos y Estructura de Datos
  * 
- * @author sevic69
- * @author fernando_figueroa
+ * Sebastián Arriola - Carnet no. 11463
+ * Jose Andrés Arenas - Carnet no. 14470
+ * Fernando Figueroa - Carnet no. 14175
+ * 
+ * 
+ ****************** Esta clase implementa la interfaz RadioI. Es utilizada
+ * **************** por la clase que implementa la interfaz grafica para
+ ****************** controlar y simular un radio de carro.
+ * 
  */
+
 public class ImplementacionRadio implements RadioI
 {
 

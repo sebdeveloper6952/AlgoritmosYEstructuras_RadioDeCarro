@@ -1,3 +1,14 @@
+/**
+ * Universidad Del Valle de Guatemala
+ * Algoritmos y Estructura de Datos
+ * 
+ * Sebastián Arriola - Carnet no. 11463
+ * Jose Andrés Arenas - Carnet no. 14470
+ * Fernando Figueroa - Carnet no. 14175
+ * 
+**/
+
+
 package org.uvg_estructuras_algoritmos.radio_de_carro;
 
 import org.junit.After;
@@ -7,10 +18,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Jose Arenas
- */
+
 public class ImplementacionRadioTest {
     
     public ImplementacionRadioTest() {

@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+ * Universidad Del Valle de Guatemala
+ * Algoritmos y Estructura de Datos
+ * 
+ * 
+ * Sebastián Arriola - Carnet no. 11463
+ * Jose Andrés Arenas - Carnet no. 14470
+ * Fernando Figueroa - Carnet no. 14175
+ * 
+**/
+
 package org.uvg_estructuras_algoritmos.radio_de_carro;
 
 import java.awt.Color;
@@ -11,10 +17,7 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.io.InputStream;
 
-/**
- *
- * @author sevic69
- */
+
 public class InterfazDeUsuario extends javax.swing.JFrame 
 {
     protected RadioI implementacionRadio;

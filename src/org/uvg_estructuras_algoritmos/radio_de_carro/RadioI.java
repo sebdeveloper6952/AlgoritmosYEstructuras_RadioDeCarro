@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+ * Universidad Del Valle de Guatemala
+ * Algoritmos y Estructura de Datos
+ * 
+**/
+
 package org.uvg_estructuras_algoritmos.radio_de_carro;
 
-/**
- *
- * @author sevic69
- */
+
 public interface RadioI 
 {
     public String frecAdelante();
