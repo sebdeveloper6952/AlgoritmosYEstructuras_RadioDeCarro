@@ -21,6 +21,10 @@ import java.io.InputStream;
 public class InterfazDeUsuario extends javax.swing.JFrame 
 {
     protected RadioI implementacionRadio;
+    
+    /**
+     * Custom font para la pantalla del radio.
+     */
     protected Font customFont;
     
     /**
@@ -35,10 +39,13 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         File font_file = new File("fonts\\digital_counter_7.ttf");
         try{
             customFont = Font.createFont(Font.TRUETYPE_FONT, font_file);
+            customFont = customFont.deriveFont(50f);
            }
         catch(Exception e){
             System.out.println(e.getMessage());
         }
+        // asignar nueva font a la pantalla del radio
+        jLabelTextoRadio.setFont(customFont);
     }
 
     /**
