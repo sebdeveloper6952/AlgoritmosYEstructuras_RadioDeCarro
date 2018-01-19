@@ -36,7 +36,6 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         catch(Exception e){
             System.out.println(e.getMessage());
         }
-        //tA_PantallaRadio.setFont(customFont);
     }
 
     /**

@@ -52,6 +52,19 @@ public class ImplementacionRadioTest {
         ImplementacionRadio instance = new ImplementacionRadio();
         assertTrue(instance.prender());
     }
+    
+    /**
+     * Test que falla a proposito para verficar que la radio
+     * empieza apagada.
+     */
+    @Test
+    public void testFallarPrender()
+    {
+        System.out.println("fallarPrender");
+        ImplementacionRadio instance = new ImplementacionRadio();
+        assertTrue(instance.estaPrendido());
+    }
+        
 
     /**
      * Verifica que el radio se apague correctamente.
