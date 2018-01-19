@@ -36,14 +36,17 @@ public class InterfazDeUsuario extends javax.swing.JFrame
         // cambiar esta linea de codigo con la nueva clase para probar
         implementacionRadio = new ImplementacionRadio();
         // load custom font
-        File font_file = new File("fonts\\digital_counter_7.ttf");
-        try{
-            customFont = Font.createFont(Font.TRUETYPE_FONT, font_file);
+        try
+        {
+            InputStream is = InterfazDeUsuario.class.getResourceAsStream("/digital_counter_7.ttf");
+            customFont = Font.createFont(Font.TRUETYPE_FONT, is);
             customFont = customFont.deriveFont(50f);
-           }
-        catch(Exception e){
+        }
+        catch(Exception e)
+        {
             System.out.println(e.getMessage());
         }
+        
         // asignar nueva font a la pantalla del radio
         jLabelTextoRadio.setFont(customFont);
     }
